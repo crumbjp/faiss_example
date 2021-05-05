@@ -9,7 +9,7 @@ import (
 func Sample1() {
 	fmt.Println("*** Sample1 Flat L2")
 	index, _ := faiss.IndexFactory(2, "Flat", faiss.MetricL2)
- 	index.Add([]float32{0,0,1,0,0,1,1,1})
+	index.Add([]float32{0,0,1,0,0,1,1,1})
 	fmt.Printf("Ntotal: %v\n", index.Ntotal())
 	distances, labels, _ := index.Search([]float32{1, 0.1}, 4)
 	fmt.Printf("Distances: %v, Labels: %v\n", distances, labels)
@@ -21,7 +21,7 @@ func Sample1() {
 func Sample2() {
 	fmt.Println("*** Sample2 Flat IP")
 	index, _ := faiss.IndexFactory(2, "Flat", faiss.MetricInnerProduct)
- 	index.Add([]float32{0,0,1,0,0,1,1,1})
+	index.Add([]float32{0,0,1,0,0,1,1,1})
 	distances, labels, _ := index.Search([]float32{1, 0.1}, 4)
 	fmt.Printf("Distances: %v, Labels: %v\n", distances, labels)
 }
@@ -31,7 +31,7 @@ func Sample2() {
 func Sample3() {
 	fmt.Println("*** Sample3 L2norm Flat IP")
 	index, _ := faiss.IndexFactory(2, "L2norm, Flat", faiss.MetricInnerProduct)
- 	index.Add([]float32{0,0,1,0,0,1,1,1})
+	index.Add([]float32{0,0,1,0,0,1,1,1})
 	distances, labels, _ := index.Search([]float32{1, 0.1}, 4)
 	fmt.Printf("Distances: %v, Labels: %v\n", distances, labels)
 }
@@ -41,7 +41,7 @@ func Sample3() {
 func RFlatDontWorkWithTransform() {
 	fmt.Println("*** RFlatDontWorkWithTransform")
 	index, _ := faiss.IndexFactory(2, "L2norm,Flat,RFlat", faiss.MetricInnerProduct)
- 	index.Add([]float32{0,0,1,0,0,1,1,1})
+	index.Add([]float32{0,0,1,0,0,1,1,1})
 	distances, labels, _ := index.Search([]float32{1, 0.1}, 4)
 	// RFlat returns simple IP, (Ignoring transform layer)
 	fmt.Printf("Distances: %v, Labels: %v\n", distances, labels)
