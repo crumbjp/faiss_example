@@ -49,9 +49,20 @@ func RFlatDontWorkWithTransform() {
 // *** RFlatDontWorkWithTransform
 // Distances: [1.1 1 0.1 0], Labels: [3 1 2 0]
 
+func Refine() {
+	fmt.Println("*** Refine")
+	index, _ := faiss.IndexFactory(2, "L2norm,Flat,Refine(L2norm,Flat)", faiss.MetricInnerProduct)
+	index.Add([]float32{0,0,1,0,0,1,1,1})
+	distances, labels, _ := index.Search([]float32{1, 0.1}, 4)
+	fmt.Printf("Distances: %v, Labels: %v\n", distances, labels)
+}
+// *** Refine
+// Distances: [0.99503714 0.77395725 0.09950372 0], Labels: [1 3 2 0]
+
 func main() {
 	Sample1()
 	Sample2()
 	Sample3()
 	RFlatDontWorkWithTransform()
+	Refine()
 }
