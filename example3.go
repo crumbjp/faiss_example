@@ -77,4 +77,15 @@ func main() {
 	IndexPerformance("IVF100,Flat", 0, 100, true)
 	IndexPerformance("OPQ5,IVF100,PQ5x8", 0, 1, true)
 	IndexPerformance("OPQ5,IVF100,PQ5x8", 0, 2, true)
+
+	IndexPerformance("OPQ1_2,PQ2x8", 0, 0, true)
+	IndexPerformance("OPQ1_5,PQ5x8", 0, 0, true)
+	IndexPerformance("OPQ1_5,HNSW8_PQ5x8", 2, 0, true)
+	IndexPerformance("OPQ1_5,IVF100,PQ5x8", 0, 1, true)
+	IndexPerformance("OPQ1_5,IVF100,PQ5x8", 0, 2, true)
+
+	IndexPerformance("OPQ1_3,PQ3x8", 0, 0, true)
+	IndexPerformance("OPQ1_3,HNSW8_PQ3x8", 2, 0, true)
+	IndexPerformance("OPQ1_3,IVF100,PQ3x8", 0, 1, true)
+	IndexPerformance("OPQ1_3,IVF100,PQ3x8", 0, 2, true)
 }
